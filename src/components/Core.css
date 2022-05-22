@@ -1,0 +1,298 @@
+.Container {
+    width: 100%;
+}
+
+div.react-datepicker-wrapper {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.imagesList {
+    width: 100%;
+    margin-top: 20px;
+}
+.imgTile {
+    vertical-align: top;
+}
+
+button.input1 {
+    width: 220px;
+    height: 40px;
+    background-color: cadetblue;
+    border-radius: 5px;
+    border-color: #333;
+    color: #333;
+}
+
+button.input1:hover {
+    background-color: #00ffff;
+}
+
+
+.coreApp div.react-datepicker-wrapper {
+    display: inline-block;
+}
+
+.react-datepicker__input-container input {
+}
+
+.react-datepicker__tab-loop {
+    display: inline-block;
+}
+
+.input1 {
+    display:inline-block;
+    margin-bottom: 5px;
+    outline: 0;
+    -moz-outline-style: none;
+    font-size: 120%;
+    font-weight: 600;
+}
+
+.input1, .react-datepicker__input-container input {
+    width:110px;
+}
+
+.formInput .input1{
+    font-size: 80%;
+    font-weight: 300;
+}
+
+.formInput .input-control .input1 {
+    width: 70px;
+    margin-right: 8px;
+}
+
+.select1 {
+    font-size: 105%;
+    display:inline-block;
+    margin-bottom: 8px;
+    background-color: #ccc;
+    border-radius: 5px;
+    border-color: #333;
+    color: #333;
+    height: 32px;
+    padding: 0 15px 0 15px;
+    margin-right: 8px;
+    outline: 0;
+    -moz-outline-style: none;
+}
+
+.select1:hover {
+    background-color: #eee;
+}
+
+.selected {
+    background-color: rgb(32, 193, 80);
+}
+
+.selected:hover {
+    background-color: rgb(12, 175, 62);
+}
+
+
+.input-control {
+    display:inline-block;
+    text-align: left;
+}
+  
+.coreApp {
+    width: 100%;
+}
+
+hr {
+    border-color: transparent;
+    margin: 0px;
+}
+
+.formMap {
+    width: 100%;
+}
+
+.formMap .Container {
+    width: 100%;
+}
+
+.formInput {
+    font-size: 88%;
+    background-color: #444;
+    padding: 10px 0 10px 0;
+    width: 100%;
+    margin: auto;
+}
+
+.formInputToggle {
+    font-size: 28px;
+    text-align: left;
+    width: 120px;
+    height: 40px;
+    margin: auto;
+    background-color: #444;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid #888;
+    border-bottom: none;
+    padding: 3px 10px 0 20px;
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+    top:2px;
+}
+
+.formInputToggle:hover {
+    background-color: #555; 
+}
+
+.formInputToggle p {
+    display: inline-block;
+    color: #ddd;
+    font-size: 12px;
+    margin: 0;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 5px;
+}
+
+.formInput .label {
+    color:#ddd;
+    font-size: 80%;
+    display: inline-block;
+    width:75px;
+    border-bottom: 1px solid #999;
+    position: relative;
+    top: 2px;
+}
+
+.formSelect .label {
+    color:#ddd;
+    font-size: 90%;
+    display: inline-block;
+    width:75px;
+    border-bottom: 1px solid #999;
+    position: relative;
+    top: 5px;
+    text-align: left;  
+}
+
+div.center-cropped {
+    width: 130px;
+    height: 173px;
+    overflow:hidden;
+    float: left;
+    position: relative;
+}
+
+div.center-cropped img {
+    height: 100%;
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.vkLink {
+    position: absolute;
+    top:0px;
+    right:0px;
+    color:#ffffff;
+    text-decoration: none;
+    font-size:70%;
+    line-height: 11px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(29,72,124,0.5);
+    border: none;
+    z-index:999;
+    padding: 3px;
+    width: 14px;
+    height: 11px;
+}
+
+.imgText {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 10px;
+    line-height: 11px;
+    padding: 3px;
+    margin: 0;
+    width: 100%;
+    color: #000;
+    z-index: 999;
+    background-color: rgba(255,255,255,0.5);
+    max-height: 50%;
+    overflow: hidden;
+}
+
+.vkLink:hover {
+    background-color: rgba(29,72,124,1);
+}
+
+.vkLinkLightbox {
+    position: absolute;
+    top: 12px;
+    right: 150px;
+    width: 22px;
+    height: 20px;
+    border: 1px solid #ddd;
+    line-height: 20px;
+    border-radius: 0;
+}
+
+.vkLinkLightbox:hover {
+    background-color: rgba(60,140,250,0.8);
+}
+
+.imgIndex {
+    position: absolute;
+    top:0;
+    right:0;
+    font-size: 9px;
+    background-color: rgba(200,200,200,0.5);
+    border:none;
+    color: #222;
+    z-index: 999;
+    margin: 0;
+    padding: 0 3px 0 3px;
+    width: 14px;
+}
+
+.hidden {
+    display:none;
+}
+
+.miniHr {
+    width: 208px;
+    background-color: rgb(57, 56, 56);
+    margin: auto;
+    padding: 4px;
+    text-align: center;
+}
+
+p.labelBig {
+    color: #ddd;
+}
+
+.predContainer {
+    width:100%;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 9999;
+}
+
+.predContainer p {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 8px;
+    z-index: 9999;
+}
+
+.pred {
+    background-color: #0f0;
+    height: 8px;
+    width: 100%;
+    margin-bottom: 2px;
+}
