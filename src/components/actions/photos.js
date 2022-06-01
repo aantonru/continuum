@@ -2,16 +2,17 @@
 import { store } from '../../index';
 
 export function photosHasError(bool) {
+    bool=true;
     return {
-        type: 'PHOTOS_HAS_ERRORED',
-        hasError: bool
+        type: 'PHOTOS_HAS_ERROR',
+        photosHasError: bool
     };
 }
 
 export function photosIsLoading(bool) {
     return {
         type: 'PHOTOS_IS_LOADING',
-        isLoading: bool
+        photosIsLoading: bool
     };
 }
 
@@ -22,8 +23,17 @@ export function photosFetchDataSuccess(photos) {
     };
 }
 
-export const photosClear = {
-    type: 'PHOTOS_CLEAR'
+export function photosDataAppend(photos) {
+    return {
+        type:"PHOTOS_APPEND",
+        photos: photos
+    }
+}
+
+export function photosClear() {
+    return {
+        type: 'PHOTOS_CLEAR'
+    }
 }
 
 export function photosFound(count) {
@@ -52,36 +62,56 @@ export function getNsfw(id, url, width, height) {
     let state=store.getState();
     const predictions = await state.model.classify(img);    
     console.log(predictions);
-    dispatch(gotPredictions(id,predictions));
+   store.dispatch(gotPredictions(id,predictions));
     }
 }
 
 export function photosSearch(params) {
     console.log('--search params--');
     console.log(params);
+//    let state0=store.getState();
+//    console.warn(state0);
  
     return (dispatch) => {
         dispatch(photosIsLoading(true));
         const VK = window.VK;
-        if (VK && VK!==null && VK!=='undefined') {
-            VK.Api.call('photos.search', {lat:params.lat, long:params.long, sort:params.sort, offset:params.offset, count:params.count, radius:params.radius, start_time:params.start_time, end_time:params.end_time, v:params.v},(r) => { // eslint-disable-line no-undef
+        if (VK && VK!==null && VK!==undefined) {
+            
+            VK.Api.call('photos.search', {lat:params.lat, long:params.long, sort:1, offset:params.offset, count:params.count, radius:params.radius, start_time:params.start_time, end_time:params.end_time, v:params.v},(r) => { // eslint-disable-line no-undef
                 dispatch(photosIsLoading(false));
-                if (r.response && r.response!=='undefined' && r.response.items && r.response.items!=='undefined') {
-                    dispatch(photosFound(r.response.count));
-                    dispatch(photosFetchDataSuccess(r.response.items));
-//                    r.response.items.map((item) => {
-//                        let size=Math.floor(item.sizes.length/2)+1;
-//                        dispatch(getNsfw(item.id, item.sizes[size].url, item.sizes[size].width, item.sizes[size].height));
-//                    })
+                if (r && r.hasOwnProperty('response')) {
+                    console.log(r.response)
+                    dispatch(photosFound(r.response.count))
+                    dispatch(photosFetchDataSuccess(r.response.items ));
                 } else {
-                    dispatch(photosHasError())
+                   dispatch(photosHasError(true));
                 }
-                console.log('--response--');
-                console.log(r);
+                
             });
         } else {
-            dispatch(photosIsLoading(false));
-            dispatch(photosHasError())
+           dispatch(photosIsLoading(true));
+           dispatch(photosHasError(true));
+        }
+    }
+}
+
+export function photosAppend(params) {
+ 
+    return (dispatch) => {
+        const VK = window.VK;
+        if (VK && VK!==null && VK!==undefined) {            
+            VK.Api.call('photos.search', {lat:params.lat, long:params.long, sort:1, offset:params.offset, count:params.count, radius:params.radius, start_time:params.start_time, end_time:params.end_time, v:params.v},(r) => { // eslint-disable-line no-undef
+                if (r && r.hasOwnProperty('response')) {
+                    console.log(r.response)
+                    dispatch(photosDataAppend(r.response.items ));
+                } else {
+                   dispatch(photosHasError(true));
+                }
+                
+            });
+        } else {
+           dispatch(photosIsLoading(true));
+           dispatch(photosHasError(true));
         }
     }
 }

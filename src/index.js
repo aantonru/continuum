@@ -6,9 +6,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import configureStore from './store/config.js';
+import { createStore } from 'redux';
+import reducer from './reducers/index';
+import { INITIAL_STATE } from "./reducers/items";
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-export const store = configureStore();
+export const store = createStore( reducer, INITIAL_STATE, applyMiddleware(thunk) );
 window.store = store;
 
 ReactDOM.render(<App />, document.getElementById('root'));

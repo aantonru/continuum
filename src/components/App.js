@@ -6,7 +6,6 @@ import './App.css';
 import MyAuth from './MyAuth'
 import MyForm from './Core'
 import GeoTest from './GeoTest'
-import ImgAi from './ImgAi'
 
 export class App extends Component {
   render () {
@@ -23,7 +22,7 @@ export class App extends Component {
         <div className="AppBody">
           <div className="Container">
           <Route path="/auth/" exact component={MyAuth} />
-          <Route path="/get/" exact component={MyForm} />
+          <Route path="/get/"  exact component={MyForm} />
           <Route path="/test/" exact component={GeoTest} />
           </div>
         </div>

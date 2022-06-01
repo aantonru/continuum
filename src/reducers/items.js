@@ -1,37 +1,7 @@
-
-export function model(state = [], action) {
-    switch (action.type) {
-        case 'MODEL_LOADED':
-            return action.model;
-        default:
-            return state;
-    }
-}
-
-export function predictions(state = [], action) {
-    switch (action.type) {
-        case 'GOT_PRED':
-            state[action.id]=action.predictions;
-            return state;
-        default:
-            return state;
-    }
-}
-
-
-export function message(state = [], action) {
-    switch (action.type) {
-        case 'AI_MESSAGE':
-            return action.message;
-        default:
-            return state;
-    }
-}
-
 export function photosHasError(state = false, action) {
     switch (action.type) {
         case 'PHOTOS_HAS_ERROR':
-            return action.hasError;
+            return action.photosHasError;
         default:
             return state;
     }
@@ -40,23 +10,31 @@ export function photosHasError(state = false, action) {
 export function photosIsLoading(state = false, action) {
     switch (action.type) {
         case 'PHOTOS_IS_LOADING':
-            return action.isLoading;
+            return action.photosIsLoading;
         default:
             return state;
     }
 }
 
-export function photos(state = [], action) {
+export function photos(state = [], action) {    
+    console.warn(`${action.type} reducer!`)
+    console.log(state)
+    console.log(action)
     switch (action.type) {
         case 'PHOTOS_FETCH_DATA_SUCCESS':
-            return state.concat(action.photos);
+            return [...action.photos];
+        case 'PHOTOS_APPEND':
+            return [...state, ...action.photos]
         default:
             return state;
     }
 }
 
-const INITIAL_STATE = {
-    photos:[]
+export const INITIAL_STATE = {
+    photos:[],
+    photosFound:0,
+    photosHasError:false,
+    photosIsLoading:false
 }
 
 export function photosClear(state = INITIAL_STATE, action) {

@@ -1,24 +1,12 @@
 import { combineReducers } from 'redux';
 //import { reducer as formReducer } from 'redux-form';
-import { photos, photosClear, photosFound, photosHasError, photosIsLoading, model, message, predictions } from './items';
+import { photos, photosClear, photosFound, photosHasError, photosIsLoading } from './items';
 
-const appReducer = combineReducers({
+export default combineReducers({
     photos,
     photosFound,
     photosClear,
     photosHasError,
     photosIsLoading,
-    model,
-    message,
-    predictions
 //    form: formReducer
 });
-
-const rootReducer = (state, action) => {
-    if (action.type === 'PHOTOS_CLEAR') {
-        state = undefined
-    }
-    return appReducer(state, action)
-}
-
-export default rootReducer;
